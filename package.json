@@ -1,8 +1,8 @@
 {
   "private": true,
   "dependencies": {
-    "todomvc-common": "^1.0.1",
-    "todomvc-app-css": "^2.0.1"
+    "todomvc-app-css": "^2.1.2",
+    "todomvc-common": "^1.0.5"
   },
   "devDependencies": {
     "jasmine-core": "^2.0.0"
