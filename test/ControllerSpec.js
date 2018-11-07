@@ -95,7 +95,7 @@ describe('controller', function () {
 		it('should show active entries', function () {
 			// TODO: write test
 			// completed a false dans le todo puisque la todo est active
-			var todo = {title: 'my todo', completed : 'false'};
+			var todo = {title: 'my todo', completed : false};
 			setUpModel([todo]);
 			//Lorsque l'on affiche les entrées active la vue est initialisé a active
 			subject.setView('#/active');
@@ -106,7 +106,8 @@ describe('controller', function () {
 		it('should show completed entries', function () {
 			// TODO: write test
 			// completed a true dans le todo puisque la todo est complété
-			var todo = {title: 'my todo', completed : 'true'};
+			var todo = {title: 'my todo', completed : true};
+
 			setUpModel([todo]);
 			//Lorsque l'on affiche les entrées complété la vue est initialisé a completed
 			subject.setView('#/completed');
@@ -183,13 +184,24 @@ describe('controller', function () {
 		// on bascule tous les todos à terminé
 		it('should toggle all todos to completed', function () {
 			// TODO: write test
+			// on crée un tableau de todo avec completed a false
+			var todo = [{id: 1, title: 'my todo', completed: false},
+						{id: 2, title: 'my todo 2', completed: false}
+						]
+			// on integre le tableau dans le modele
+			setUpModel(todo);
+			
+			subject.setView('');
+			// on declenche le clic sur toggle ALL en mettant les todo sur completed true
+			view.trigger('toggleAll', {completed: true});
+			// on test si le model a bien tout les todos a true
+			expect(model.update).toHaveBeenCalledWith(1, {completed: true}, jasmine.any(Function));
+			expect(model.update).toHaveBeenCalledWith(2, {completed: true}, jasmine.any(Function));
 		});
 	
 		// mettre a jour la vue
 		it('should update the view', function () {
 			// TODO: write test
-			
-		});
 	});
 
 	describe('new todo', function () {
