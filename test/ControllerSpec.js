@@ -202,6 +202,8 @@ describe('controller', function () {
 		// mettre a jour la vue
 		it('should update the view', function () {
 			// TODO: write test
+			
+		});
 	});
 
 	describe('new todo', function () {
