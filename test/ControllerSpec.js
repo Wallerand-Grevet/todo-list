@@ -202,6 +202,20 @@ describe('controller', function () {
 		// mettre a jour la vue
 		it('should update the view', function () {
 			// TODO: write test
+			// on crée un tableau de todo avec completed a false
+			var todo = [{id: 1, title: 'my todo', completed: false},
+						{id: 2, title: 'my todo 2', completed: false}
+						]
+			// on integre le tableau dans le modele
+			setUpModel(todo);
+			
+			subject.setView('');
+			// on declenche le clic sur toggle ALL en mettant les todo sur completed true
+			view.trigger('toggleAll', {completed: true});
+			
+			// on verifie si les 2 taches sont completé
+			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 1, completed: true});
+			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 2, completed: true});
 			
 		});
 	});

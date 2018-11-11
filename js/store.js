@@ -124,7 +124,6 @@
     
 
 			todos.push(updateData);
-			console.log(todos)
 			localStorage[this._dbName] = JSON.stringify(data);
 			callback.call(this, [updateData]);
 		}

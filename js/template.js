@@ -99,7 +99,7 @@
 	/**
 	 * Met à jour le texte dans le bouton "Effacement terminé"
 	 *
-	 * @param  {[type]} completedTodos Le nombre de tâches terminées.
+	 * @param  {type} completedTodos Le nombre de tâches terminées.
 	 * @returns {string} Chaîne contenant le compteur
 	 */
 	Template.prototype.clearCompletedButton = function (completedTodos) {
